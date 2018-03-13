@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const $axios = axios.create({
-  baseURL: 'https://api.github.com/repos/Atinux/gh-clone'
+  baseURL: 'https://api.github.com'
 })
 
 $axios.setToken = (token) => {

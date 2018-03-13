@@ -20,7 +20,7 @@ export default new Router({
       component: NewIssue
     },
     {
-      path: '/issues/:id',
+      path: '/issues/:number',
       name: 'issue',
       component: Issue
     }
