@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+## Prerequisites
+
+You need to create a personal access token on your Github (check `public_repo`) and replace `YOUR_GH_TOKEN` into into `conf/prod.env.js`.
+
 ## Build Setup
 
 ``` bash

@@ -2,8 +2,8 @@
   <b-form @submit.prevent="postIssue">
     <b-alert variant="danger" :show="hasErrored">Could not post issue on GitHub.</b-alert>
     <b-form-input type="text" v-model="title" required placeholder="Issue title" style="margin-bottom: 10px;"/>
-    <b-form-textarea v-model="body" placeholder="Issue content" :rows="6" style="margin-bottom: 10px;">
-    </b-form-textarea>
+    <at-textarea v-model="body"/>
+    {{ body }}
     <b-button type="submit" variant="primary" :disabled="isLoading">{{ isLoading ? 'Submitting issue...' : 'Submit issue' }}</b-button>
   </b-form>
 </template>
@@ -17,6 +17,12 @@ export default {
       title: "",
       body: ""
     };
+  },
+  async created() {
+    const { data } = await this.$axios.get(
+      "/repos/Atinux/gh-clone/collaborators"
+    );
+    console.log(data);
   },
   methods: {
     async postIssue() {

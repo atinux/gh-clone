@@ -7,11 +7,15 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   state: {
     repo: 'Atinux/gh-clone',
-    user: null
+    user: null,
+    collaborators: []
   },
   mutations: {
     SET_USER(state, user) {
       state.user = user
+    },
+    SET_COLLABORATORS(state, collaborators) {
+      state.collaborators = collaborators
     }
   },
   actions: {

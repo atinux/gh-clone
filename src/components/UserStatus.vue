@@ -15,11 +15,16 @@ export default {
       this.$axios.setToken(process.env.GH_TOKEN);
 
       const user = (await this.$axios.get("/user")).data;
+      const collaborators = (await this.$axios.get(
+        `/repos/${this.$store.state.repo}/collaborators`
+      )).data;
       this.$store.commit("SET_USER", user);
+      this.$store.commit("SET_COLLABORATORS", collaborators);
     },
     logout() {
       this.$axios.setToken(null);
       this.$store.commit("SET_USER", null);
+      this.$store.commit("SET_COLLABORATORS", []);
     }
   }
 };
